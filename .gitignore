@@ -1,0 +1,13 @@
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
+Gemfile.lock
+
+# Ignore the directory for local files during development
+local/
+
+# Ingore files created by npm
+node_modules
+package-lock.json

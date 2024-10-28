@@ -1,0 +1,29 @@
+---
+layout: archive
+title: "Course Assignments Archive"
+permalink: /assignments/
+author_profile: true
+---
+{% include base_path %}
+
+<!-- New style rendering if publication categories are defined -->
+{% if site.assignments %}
+  {% for category in site.assignment_category  %}
+    {% assign title_shown = false %}
+    {% assign sorted_posts = site.assignments | sort: 'title' %} <!-- Sort by title here -->
+    {% for post in sorted_posts %}
+      {% if post.category != category[0] %}
+        {% continue %}
+      {% endif %}
+      {% unless title_shown %}
+        <h2>{{ category[1].title }}</h2><hr />
+        {% assign title_shown = true %}
+      {% endunless %}
+      {% include archive-single.html %}
+    {% endfor %}
+  {% endfor %}
+{% else %}
+  {% for post in site.assignments reversed %}
+    {% include archive-single.html %}
+  {% endfor %}
+{% endif %}
