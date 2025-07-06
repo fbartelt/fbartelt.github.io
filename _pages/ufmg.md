@@ -7,4 +7,4 @@ nav: true
 nav_order: 2
 ---
 
-{% include ufmg.html %}
+{% include ufmg.liquid %}
