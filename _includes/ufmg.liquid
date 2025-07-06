@@ -1,0 +1,67 @@
+<div class="ufmg-repositories">
+  <!-- Graduate Section -->
+  <h2 class="category">Graduate Courses</h2>
+  <div class="projects">
+    {% assign grad_sorted = site.data.ufmg.grad | sort: 'date' | reverse %}
+    {% for item in grad_sorted %}
+    <div class="card mb-4">
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <h5 class="card-title">{{ item.title }}</h5>
+          <div class="text-end">
+            <span class="badge bg-secondary">{{ item.date | date: "%b %Y" }}</span>
+          </div>
+        </div>
+        
+        <p class="card-text">{{ item.description }}</p>
+        
+        <div class="repo-links">
+          <!-- Coursework Link -->
+          <a href="{{ item.repo }}" target="_blank" class="btn btn-sm btn-outline-primary z-depth-0 me-1 mb-1">
+            Coursework
+          </a>
+          
+          <!-- Final Project Link (conditional) -->
+          {% if item.final-repo %}
+          <a href="{{ item.final-repo }}" target="_blank" class="btn btn-sm btn-outline-success z-depth-0 me-1 mb-1">
+            Final Project
+          </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Undergraduate Section -->
+  <h2 class="category mt-5">Undergraduate Courses</h2>
+  <div class="projects">
+    {% assign undergrad_sorted = site.data.ufmg.undergrad | sort: 'date' | reverse %}
+    {% for item in undergrad_sorted %}
+    <div class="card mb-4">
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <h5 class="card-title">{{ item.title }}</h5>
+          <div class="text-end">
+            <span class="badge bg-secondary">{{ item.date | date: "%b %Y" }}</span>
+          </div>
+        </div>
+        
+        <p class="card-text">{{ item.description }}</p>
+        
+        <div class="repo-links">
+          <a href="{{ item.repo }}" target="_blank" class="btn btn-sm btn-outline-primary z-depth-0 me-1 mb-1">
+            Coursework
+          </a>
+          
+          {% if item.final-repo %}
+          <a href="{{ item.final-repo }}" target="_blank" class="btn btn-sm btn-outline-success z-depth-0 me-1 mb-1">
+            Final Project
+          </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>

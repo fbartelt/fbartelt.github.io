@@ -1,0 +1,46 @@
+grad:
+  - title: "EEE935 - Tópicos Especiais em Sinais e Sistemas: Planejamento de Movimento de Robôs"
+    repo: "https://github.com/fbartelt/Planejamento-de-Movimento-de-Robos"
+    final-repo: "https://github.com/fbartelt/Configuration-Space-RRT"
+    date: 2021-08-10
+    description: "2021/2 - Prof. Luciano Pimenta"
+  - title: "EEE935 - Tópicos Especiais em Sinais e Sistemas: Técnicas de Controle Não Linear"
+    repo: "https://github.com/fbartelt/TCNL"
+    final-repo: "https://github.com/fbartelt/Dinamica-Controle-Robos/blob/main/TP_FelipeBartelt.pdf"
+    date: 2023-08-10
+    description: "2023/2 - Prof. Guilherme Raffo"
+  - title: "EEE935 - Tópicos Especiais em Sinais e Sistemas: Dinâmica e Controle de Robôs"
+    repo: "https://github.com/fbartelt/Dinamica-Controle-Robos"
+    date: 2023-08-10
+    description: "2023/2 - Prof. Leo Torres"
+  - title: "EEE954 - Teoria de Sistemas Lineares I"
+    repo: "https://github.com/fbartelt/Ball-and-Plate"
+    date: 2023-03-10
+    description: "2023/1 - Prof. Reinaldo Palhares"
+  - title: "EEE935 - Tópicos Especiais em Sinais e Sistemas: Controle Ótimo e MPC"
+    repo: "https://github.com/fbartelt/Controle-Otimo"
+    date: 2023-03-10
+    description: "2023/1 - Prof. Guilherme Raffo"
+
+undergrad:
+  - title: "ELT016 - Técnicas de Modelagem de Sistemas Dinâmicos"
+    repo: "https://github.com/fbartelt/Modelagem-Sistemas-Dinamicos"
+    date: 2021-08-10
+    description: "2021/2 - Prof. Bruno Teixeira"
+  - title: "ELE075 - Sistemas Nebulosos"
+    repo: "https://github.com/fbartelt/Sistemas-Nebulosos"
+    date: 2021-08-10
+    description: "2021/2 - Prof. Cristiano Castro"
+  - title: "ELE078 - Programação Orientada a Objetos"
+    repo: "https://github.com/fbartelt/POO"
+    date: 2022-03-10
+    description: "2022/1 - Prof. Cristiano Castro"
+  - title: "ELT131 - Redes Neurais Artificiais"
+    repo: "https://github.com/fbartelt/RNA"
+    date: 2021-03-09
+    description: "2021/1 - Prof. Antônio Braga"
+  - title: "DCC043 - Visão Computacional"
+    repo: "https://github.com/fbartelt/Visao-Computacional"
+    final-repo: "https://github.com/dcfreire/ruibotchapeu"
+    date: 2021-03-10
+    description: "2021/1 - Prof. Erickson Nascimento"
