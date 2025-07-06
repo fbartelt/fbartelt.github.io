@@ -16,6 +16,13 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/publications/";
           },
+        },{id: "nav-ufmg",
+          title: "UFMG",
+          description: "Trabalhos e provas de disciplinas de graduação e pós-graduação da UFMG.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/ufmg/";
+          },
         },{id: "nav-projects",
           title: "projects",
           description: "A growing collection of your cool projects.",
