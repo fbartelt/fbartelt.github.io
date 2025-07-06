@@ -21,6 +21,14 @@ grad:
     repo: "https://github.com/fbartelt/Controle-Otimo"
     date: 2023-03-10
     description: "2023/1 - Prof. Guilherme Raffo"
+  - title: "DCC831 - Tópicos Especiais em Ciência da Computação: Programação Linear"
+    repo: "https://github.com/fbartelt/Programacao-Linear"
+    date: 2025-03-10
+    description: "2025/1 - Prof. Alexandre Cunha"
+  - title: "EEE935 - Tópicos Especiais em Sinais e Sistemas: Constrained Robotic Control"
+    repo: "https://github.com/fbartelt/Constrained-Robotic-Control"
+    date: 2025-03-10
+    description: "2025/1 - Prof. Vinicius Gonçalves"
 
 undergrad:
   - title: "ELT016 - Técnicas de Modelagem de Sistemas Dinâmicos"
