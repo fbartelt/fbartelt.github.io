@@ -1,27 +1,40 @@
 ---
-layout: publications-categorized
-permalink: /publications/
+layout: page
 title: Publications
-nav: true
-nav_order: 2
+permalink: /publications/
 toc:
   sidebar: left
+description: Publications by categories in reversed chronological order.
+nav: true
+nav_order: 2
 ---
 
-<!-- Content will be auto-generated -->---
-<!-- _pages/publications.md -->
+### Journal Papers
+<div class="publications">
+{% bibliography --query @article %}
+</div>
 
-<!-- Bibsearch Feature -->
-<!---->
-<!-- {% include bib_search.liquid %} -->
-<!---->
-<!-- <div class="publications"> -->
-<!---->
-<!-- {% bibliography %} -->
-<!---->
-<!-- </div> -->
-<!-- _pages/publications.md -->
+### Conference Papers
+<div class="publications">
+{% bibliography --query @inproceedings %}
+</div>
 
-<!-- {% include bib_search.liquid %} -->
-<!-- Search bar -->
+### Books
+<div class="publications">
+{% bibliography --query @book %}
+</div>
 
+### Book Chapters
+<div class="publications">
+{% bibliography --query @incollection %}
+</div>
+
+### Theses
+<div class="publications">
+{% bibliography --query @phdthesis || @mastersthesis %}
+</div>
+
+### Preprints
+<div class="publications">
+{% bibliography --query @unpublished || @misc %}
+</div>
