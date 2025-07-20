@@ -4,7 +4,6 @@ title: Publications
 permalink: /publications/
 toc:
   sidebar: left
-description: Publications by categories in reversed chronological order.
 nav: true
 nav_order: 2
 ---
@@ -16,7 +15,7 @@ nav_order: 2
 
 ### Conference Papers
 <div class="publications">
-{% bibliography --query @inproceedings %}
+{% bibliography --query @inproceedings || @conference %}
 </div>
 
 ### Books
@@ -26,15 +25,35 @@ nav_order: 2
 
 ### Book Chapters
 <div class="publications">
-{% bibliography --query @incollection %}
-</div>
-
-### Theses
-<div class="publications">
-{% bibliography --query @phdthesis || @mastersthesis %}
+{% bibliography --query @incollection || @inbook %}
 </div>
 
 ### Preprints
 <div class="publications">
 {% bibliography --query @unpublished || @misc %}
 </div>
+
+<!-- ### Technical Reports -->
+<!-- <div class="publications"> -->
+<!-- {% bibliography --query @techreport %} -->
+<!-- </div> -->
+<!---->
+### Theses
+<div class="publications">
+{% bibliography --query @phdthesis || @mastersthesis %}
+</div>
+
+<!-- ### Workshop Papers -->
+<!-- <div class="publications"> -->
+<!-- {% bibliography --query @workshop %} -->
+<!-- </div> -->
+<!---->
+<!-- ### Patents -->
+<!-- <div class="publications"> -->
+<!-- {% bibliography --query @patent %} -->
+<!-- </div> -->
+<!---->
+<!-- ### Software -->
+<!-- <div class="publications"> -->
+<!-- {% bibliography --query @software || @misc[software=true] %} -->
+<!-- </div> -->

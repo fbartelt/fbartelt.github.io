@@ -270,8 +270,24 @@ display_categories: ["external-services"] # these categories will be displayed o
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Einstein]
-  first_name: [Albert, A.]
+  last_name: 
+    - Pessoa
+    - Bartelt
+  first_name:
+    - Felipe
+    - F.
+    - F
+    - "F B"          # Non-dotted with space
+    - "FB"            # Non-dotted without space
+    - "F B A"         # Non-dotted with spaces
+    - "FBA"           # Non-dotted without spaces
+    - "Felipe B"      # Partial dotted
+    - "Felipe Bartelt"
+    - "Felipe Bartelt de Assis"
+    - "F. B. A."      # Fully dotted
+    - "F.B.A."        # Fully dotted without spaces
+  # last_name: [Pessoa, Bartelt]
+  # first_name: [Felipe, F, F., F B A, F. B. A., ]
 
   style: apa
   locale: en
