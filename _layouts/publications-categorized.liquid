@@ -1,8 +1,7 @@
 ---
 layout: page
 ---
-
-{% comment %} Define your type-to-category mapping here {% endcomment %}
+{% comment %} Define your type-to-category mapping {% endcomment %}
 {% assign type_map = "article:Journal; inproceedings:Conference; book:Book; incollection:'Book Chapter'; phdthesis:Thesis; mastersthesis:Thesis; unpublished:Preprint; misc:Preprint" | split: "; " %}
 
 {% comment %} Build category arrays {% endcomment %}
@@ -17,41 +16,20 @@ layout: page
   {% endunless %}
 {% endfor %}
 
-<div class="publications-categorized">
-  <div class="container">
-    <div class="row">
-      <!-- Sidebar -->
-      <div class="col-lg-3">
-        <nav id="sidebar" class="sticky-top">
-          <ul class="nav flex-column">
-            {% for category in categories %}
-              <li class="nav-item">
-                <a class="nav-link" href="#{{ category | slugify }}">{{ category }}</a>
-              </li>
-            {% endfor %}
-          </ul>
-        </nav>
-      </div>
-      
-      <!-- Main Content -->
-      <div class="col-lg-9">
-        {{ content }}
-        
-        {% for category in categories %}
-          <h2 id="{{ category | slugify }}">{{ category }}</h2>
-          {% comment %} Get all types that map to this category {% endcomment %}
-          {% assign type_filter = "" | split: "," %}
-          {% for mapping in type_map %}
-            {% assign parts = mapping | split: ":" %}
-            {% if parts[1] == category %}
-              {% assign type_filter = type_filter | push: parts[0] %}
-            {% endif %}
-          {% endfor %}
-          
-          {% comment %} Generate bibliography for this category {% endcomment %}
-          {% bibliography --group_by none --query @*[type={{ type_filter | join: "||" }}] %}
-        {% endfor %}
-      </div>
-    </div>
-  </div>
+<div class="publications">
+  {{ content }}
+  
+  {% for category in categories %}
+    {% comment %} Get all types for this category {% endcomment %}
+    {% assign type_filter = "" | split: "," %}
+    {% for mapping in type_map %}
+      {% assign parts = mapping | split: ":" %}
+      {% if parts[1] == category %}
+        {% assign type_filter = type_filter | push: parts[0] %}
+      {% endif %}
+    {% endfor %}
+    
+    <h2 id="{{ category | slugify }}" class="category-header">{{ category }}</h2>
+    {% bibliography --group_by none --query @*[type={{ type_filter | join: "||" }}] %}
+  {% endfor %}
 </div>

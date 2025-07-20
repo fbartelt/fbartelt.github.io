@@ -1,13 +1,28 @@
-.publications-categorized {
-  #sidebar {
-    top: 20px;
-    padding-right: 15px;
-    border-right: 1px solid #eee;
-    position: sticky;
-    
-    .nav-link {
-      padding: 5px 0;
-      color: #666;
+// Add these to your existing .publications class
+
+.publications {
+  // Category headers
+  h2.category-header {
+    color: var(--global-theme-color);
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--global-divider-color);
+  }
+  
+  // Hide year headers
+  h2.year {
+    display: none !important;
+  }
+  
+  // Ensure sidebar links work with category anchors
+  #toc-sidebar {
+    a.nav-link {
+      padding: 0.25rem 0.5rem;
+      font-size: 0.9rem;
+      color: var(--global-text-color);
+      
+      &:hover,
       &.active {
         color: var(--global-theme-color);
         font-weight: 500;
@@ -15,13 +30,25 @@
     }
   }
   
-  .bibliography {
-    margin-bottom: 3rem;
+  // Fix abstract toggle appearance
+  .abstract-toggle {
+    cursor: pointer;
+    border-bottom: 1px dashed var(--global-theme-color);
+    color: var(--global-theme-color);
     
-    h2 {
-      margin-top: 2rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid #eee;
+    &:hover {
+      text-decoration: none;
+      border-bottom-style: solid;
+    }
+  }
+  
+  // Responsive sidebar
+  @media (max-width: 991.98px) {
+    #toc-sidebar {
+      position: static !important;
+      width: 100% !important;
+      margin-bottom: 2rem;
+      border-right: none !important;
     }
   }
 }
