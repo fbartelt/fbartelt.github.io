@@ -10,11 +10,48 @@ nav_order: 2
 <!-- _pages/publications.md -->
 
 <!-- Bibsearch Feature -->
+<!---->
+<!-- {% include bib_search.liquid %} -->
+<!---->
+<!-- <div class="publications"> -->
+<!---->
+<!-- {% bibliography %} -->
+<!---->
+<!-- </div> -->
+<!-- _pages/publications.md -->
 
 {% include bib_search.liquid %}
 
-<div class="publications">
+<div class="row">
+  <div class="col-md-3">
+    <div class="list-group sticky-top">
+      <a href="#journals" class="list-group-item">Journals</a>
+      <a href="#conferences" class="list-group-item">Conferences</a>
+      <a href="#preprints" class="list-group-item">Preprints</a>
+      <a href="#books" class="list-group-item">Books</a>
+      <a href="#theses" class="list-group-item">Theses</a>
+    </div>
+  </div>
 
-{% bibliography %}
+  <div class="col-md-9">
+    <div class="publications">
 
+      <h2 id="journals">Journals</h2>
+      {% bibliography --query @article --sort-by year --order descending %}
+
+      <h2 id="conferences">Conferences</h2>
+      {% bibliography --query @inproceedings --sort-by year --order descending %}
+
+      <h2 id="preprints">Preprints</h2>
+      {% bibliography --query @unpublished --sort-by year --order descending %}
+
+      <h2 id="books">Books</h2>
+      {% bibliography --query @book --sort-by year --order descending %}
+
+      <h2 id="theses">Theses</h2>
+      {% bibliography --query @phdthesis --sort-by year --order descending %}
+      {% bibliography --query @mastersthesis --sort-by year --order descending %}
+
+    </div>
+  </div>
 </div>
