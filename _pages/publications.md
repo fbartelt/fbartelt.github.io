@@ -18,21 +18,21 @@ nav_order: 2
 {% bibliography --query @inproceedings || @conference %}
 </div>
 
-### Books
-<div class="publications">
-{% bibliography --query @book %}
-</div>
-
-### Book Chapters
-<div class="publications">
-{% bibliography --query @incollection || @inbook %}
-</div>
-
-### Preprints
-<div class="publications">
-{% bibliography --query @unpublished || @misc %}
-</div>
-
+<!-- ### Books -->
+<!-- <div class="publications"> -->
+<!-- {% bibliography --query @book %} -->
+<!-- </div> -->
+<!---->
+<!-- ### Book Chapters -->
+<!-- <div class="publications"> -->
+<!-- {% bibliography --query @incollection || @inbook %} -->
+<!-- </div> -->
+<!---->
+<!-- ### Preprints -->
+<!-- <div class="publications"> -->
+<!-- {% bibliography --query @unpublished || @misc %} -->
+<!-- </div> -->
+<!---->
 <!-- ### Technical Reports -->
 <!-- <div class="publications"> -->
 <!-- {% bibliography --query @techreport %} -->
