@@ -1,0 +1,37 @@
+.publications-categorized {
+  .publication {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+    
+    .publication-links {
+      margin-top: 0.5rem;
+      a {
+        margin-right: 15px;
+        @include link-no-underline;
+      }
+    }
+    
+    .abstract {
+      margin-top: 1rem;
+      padding: 1rem;
+      background-color: #f9f9f9;
+      border-radius: 4px;
+    }
+  }
+  
+  #sidebar {
+    top: 20px;
+    padding-right: 15px;
+    border-right: 1px solid #eee;
+    
+    .nav-link {
+      padding: 5px 0;
+      color: #666;
+      &.active {
+        color: var(--global-theme-color);
+        font-weight: 500;
+      }
+    }
+  }
+}

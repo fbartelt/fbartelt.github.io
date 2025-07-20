@@ -1,0 +1,71 @@
+---
+layout: page
+---
+{% if site.scholar %}{% scholar_tags %}{% endif %}
+
+{% assign category_map = "Journal:article|review;Conference:inproceedings;Book:book;Book Chapter:incollection;Thesis:phdthesis|mastersthesis;Preprint:unpublished|misc" | split: ";" %}
+
+{% assign categories = "" | split: ',' %}
+{% for item in category_map %}
+  {% assign parts = item | split: ":" %}
+  {% assign types = parts[1] | split: "|" %}
+  {% assign pubs = site.data.publications | where_exp: "pub", "types contains pub.type" %}
+  {% if pubs.size > 0 %}
+    {% assign group = parts[0] | split: "|" | push: pubs %}
+    {% assign categories = categories | push: group %}
+  {% endif %}
+{% endfor %}
+
+<div class="publications-categorized">
+  <div class="container">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-lg-3">
+        <nav id="sidebar" class="sticky-top">
+          <ul class="nav flex-column">
+            {% for cat in categories %}
+              <li class="nav-item">
+                <a class="nav-link" href="#{{ cat[0] | slugify }}">{{ cat[0] }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </div>
+      
+      <!-- Main Content -->
+      <div class="col-lg-9">
+        {{ content }}
+        
+        {% for cat in categories %}
+          <h2 id="{{ cat[0] | slugify }}">{{ cat[0] }}</h2>
+          {% assign pubs = cat[1] | sort: "year" | reverse %}
+          {% for pub in pubs %}
+            <div class="publication" id="{{ pub.key }}">
+              {% reference pub.key %}
+              
+              <!-- Abstract toggle & links -->
+              <div class="publication-links">
+                {% if pub.abstract %}
+                  <a class="abstract-toggle" data-toggle="collapse" href="#{{ pub.key }}-abstract">Abstract</a>
+                {% endif %}
+                {% if pub.link %}
+                  <a href="{{ pub.link }}">PDF</a>
+                {% endif %}
+                {% for link in pub.links %}
+                  <a href="{{ link.url }}">{{ link.name }}</a>
+                {% endfor %}
+              </div>
+              
+              <!-- Abstract -->
+              {% if pub.abstract %}
+                <div id="{{ pub.key }}-abstract" class="abstract collapse">
+                  <p>{{ pub.abstract }}</p>
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
