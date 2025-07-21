@@ -80,9 +80,15 @@
         {%- comment %} Add this at the top of the file {% endcomment -%}
         {%- capture abbreviate_name -%}
           {%- assign parts = author.first | split: ' ' -%}
+          {%- assign filtered_parts = "" | split: "" -%}
           {%- assign ignore_words = "de,da,do,van,von" | split: "," -%}
-          {%- assign parts = author.first | split: ' ' | reject: ignore_words contains -%}
-          {%- for part in parts -%}{{ part | slice: 0 }}.{% unless forloop.last %} {% endunless -%}
+          {%- for part in parts -%}
+            {%- unless ignore_words contains part -%}
+              {%- assign filtered_parts = filtered_parts | push: part -%}
+            {%- endunless -%}
+          {%- endfor -%}
+          {%- for part in filtered_parts -%}
+            {{ part | slice: 0 }}.{% unless forloop.last %} {% endunless -%}
           {%- endfor -%}
         {%- endcapture -%}
 

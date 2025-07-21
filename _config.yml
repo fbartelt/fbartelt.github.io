@@ -284,6 +284,7 @@ scholar:
     - "Felipe B"      # Partial dotted
     - "Felipe Bartelt"
     - "Felipe Bartelt de Assis"
+    - "Felipe Bartelt Assis"
     - "F. B. A."      # Fully dotted
     - "F.B.A."        # Fully dotted without spaces
   # last_name: [Pessoa, Bartelt]
