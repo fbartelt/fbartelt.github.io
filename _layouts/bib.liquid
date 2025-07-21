@@ -77,6 +77,14 @@
             {%- endif -%}
           {% endfor %}
         {%- endif -%}
+        {%- comment %} Add this at the top of the file {% endcomment -%}
+        {%- capture abbreviate_name -%}
+          {%- assign parts = author.first | split: ' ' -%}
+          {%- assign ignore_words = "de,da,do,van,von" | split: "," -%}
+          {%- assign parts = author.first | split: ' ' | reject: ignore_words contains -%}
+          {%- for part in parts -%}{{ part | slice: 0 }}.{% unless forloop.last %} {% endunless -%}
+          {%- endfor -%}
+        {%- endcapture -%}
 
         {%- if forloop.length > 1 -%}
           {% if forloop.first == false -%}
@@ -86,17 +94,20 @@
         {% endif %}
         {%- if author_is_self -%}
           <em>
-            {{- author.first }}
+            {% comment %} {{- author.first }} {% endcomment %}
+            {{- abbreviate_name | strip }}
             {{ author_last_html -}}
           </em>
         {%- else -%}
           {%- if coauthor_url -%}
             <a href="{{ coauthor_url }}">
-              {{- author.first }}
+              {% comment %} {{- author.first }} {% endcomment %}
+              {{- abbreviate_name | strip }}
               {{ author_last_html -}}
             </a>
           {%- else -%}
-            {{- author.first }}
+            {% comment %} {{- author.first }} {% endcomment %}
+            {{- abbreviate_name | strip }}
             {{ author_last_html -}}
           {% endif %}
         {%- endif -%}
@@ -360,7 +371,7 @@
         {{- entry.bibtex | hideCustomBibtex -}}
         {% endhighlight %}
       </div>
-    {% endunless %}}
+    {% endunless %}
 
     {% if entry.video and site.enable_video_embedding %}
       <!-- Hidden video block -->
